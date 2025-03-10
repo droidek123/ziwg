@@ -1,0 +1,6 @@
+pl/edu/pwr/zigw/model/User$UserBuilder.class
+pl/edu/pwr/zigw/repository/UserRepository.class
+pl/edu/pwr/zigw/service/UserService.class
+pl/edu/pwr/zigw/model/User.class
+pl/edu/pwr/zigw/UserServiceApplication.class
+pl/edu/pwr/zigw/controller/UserController.class

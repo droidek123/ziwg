@@ -1,0 +1,19 @@
+version: "3.8"
+services:
+  web:
+    build: ../web
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+
+  UserService:
+    build: ../userService
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

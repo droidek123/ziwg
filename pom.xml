@@ -19,6 +19,7 @@
     <modules>
         <module>UserService</module>
         <module>web</module>
+        <module>Discovery</module>
     </modules>
 
     <build>

@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: Users
+server:
+  port: 0
+
+eureka:
+  instance:
+    prefer-ip-address: true

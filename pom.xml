@@ -20,6 +20,8 @@
         <module>UserService</module>
         <module>web</module>
         <module>Discovery</module>
+        <module>Config</module>
+        <module>Gateway</module>
     </modules>
 
     <build>

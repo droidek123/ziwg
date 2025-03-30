@@ -1,49 +1,14 @@
 server:
   port: 8080
 spring:
+  application:
+    name: gateway
   cloud:
     gateway:
       routes:
-#        - id: customers
-#          uri: lb://Customers
-#          predicates:
-#            - Path=/customers/**
-#          filters:
-#            - CustomerFilter
-#
-#        #        Register
-#        - id: registration-register
-#          uri: lb://Registration
-#          predicates:
-#            - Path=/register
-#        - id: registration-active
-#          uri: lb://Registration
-#          predicates:
-#            - Path=/active
-#        - id: registration-close
-#          uri: lb://Registration
-#          predicates:
-#            - Path=/close
-#
-#        #        Coupons
-#        - id: coupons-issue
-#          uri: lb://Coupons
-#          predicates:
-#            - Path=/issue
-#        - id: coupons-use
-#          uri: lb://Coupons
-#          predicates:
-#            - Path=/use
-
-        #         jsonplaceholder
-        - id: jsonplaceholder-todos
-          uri: https://jsonplaceholder.typicode.com/
+        - id: user-route
+          uri: ${POST_ROUTE_URI:http:localhost:8081}
           predicates:
-            - Path=/todos
-        - id: jsonplaceholder-all
-          uri: https://jsonplaceholder.typicode.com/
-          predicates:
-            - Path=/todos/**
-
-  application:
-    name: gateway
+            - Path=/users/**
+          filters:
+            - PrefixPaths=/api

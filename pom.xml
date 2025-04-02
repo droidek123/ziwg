@@ -17,11 +17,13 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>Utils</module>
+        <module>Discovery</module>
         <module>UserService</module>
         <module>web</module>
-        <module>Discovery</module>
         <module>Config</module>
         <module>Gateway</module>
+        <module>ReservationService</module>
     </modules>
 
     <build>

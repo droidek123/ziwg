@@ -25,3 +25,8 @@ UserService - testowy service javowy (jeżeli się zdecydujemy na backend w micr
 ```
 mvn clean spring-boot:run
 ```
+
+swagger dla serwisu pod takim adressem `http://localhost:8080`
+```
+http://localhost:8080/swagger-ui/index.html
+```

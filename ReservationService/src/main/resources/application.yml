@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: ReservationService
+server:
+  port: 8081
+
+eureka:
+  instance:
+    prefer-ip-address: true

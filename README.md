@@ -3,7 +3,7 @@ Student project for a class on the use of IT in the business
 
 ### Szybki opis (Potem się to trochę zmieni)
 
--cały można zbudować mavenem
+- cały projekt można zbudować mavenem
 ```
 mvn clean install
 ```
@@ -19,14 +19,15 @@ npm start
 npm i
 ```
 
-UserService - testowy service javowy (jeżeli się zdecydujemy na backend w microservicach no to może być odpowiedzialny za obsługę userów)
+- ReservationService \- serwis do obsługi filmów i ich rezerwacji (działa na porcie 8081, ale można sie do niego dostać również przez port gate-way\`a czyli 8080)
+- UserService \- serwis do obsługi urzytkowników (działa na porcie 8082, ale można sie do niego dostać również przez port gate-way\`a czyli 8080)
 
 - jak by ktoś chciał uruchomić to inaczej niż z ide to:
 ```
 mvn clean spring-boot:run
 ```
 
-swagger dla serwisu pod takim adressem `http://localhost:8080`
+swagger dla serwisu znajduje się pod takim adresem
 ```
-http://localhost:8080/swagger-ui/index.html
+http://localhost:{numer-portu}/swagger-ui/index.html
 ```

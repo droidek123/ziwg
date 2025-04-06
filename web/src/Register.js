@@ -30,7 +30,7 @@ function Register() {
         </button>
       </header>
 
-      <nav className="navbar">rejestracja</nav>
+      <nav className="navigation-bar">rejestracja</nav>
 
       {sidebarOpen && (
         <>

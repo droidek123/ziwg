@@ -1,0 +1,187 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #F6F1DE;
+  }
+  
+  .reservation-container {
+    position: relative;
+    min-height: 100vh;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    background-color: #F6F1DE;
+    color: rgb(0, 0, 0);
+  }
+  
+  .app-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .menu-button {
+    font-size: 28px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: #F6F1DE;
+    width: 250px;
+    height: 100vh;
+    padding: 20px;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+  }
+  
+  .sidebar p {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .navigation-bar {
+    background-color: #3E3F5B;
+    color: white;
+    padding: 12px 24px;
+    font-weight: bold;
+  }
+  
+
+  .main-content {
+    display: flex;
+    gap: 24px;
+    padding: 24px;
+    flex-wrap: wrap;
+  }
+  
+  .movie-poster {
+    width: 220px;
+    height: 280px;
+    background-color: #ACD3A8;
+  }
+  
+  .reservation-details {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 10px;
+  }
+  
+  .movie-title {
+    font-size: 24px;
+    font-weight: bold;
+  }
+  
+  .info-text {
+    font-weight: bold;
+  }
+
+  .action-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 140px;
+    right: 24px;
+  }
+  
+  .action-button {
+    background-color: #3E3F5B;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+
+  .snack-order {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+  }
+  
+  .snack-button {
+    background-color: #3E3F5B;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 20;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  
+  .modal {
+    background-color: #F6F1DE;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+  }
+  
+  .modal-text {
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .modal-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+  
+  .modal-btn {
+    padding: 10px 24px;
+    border: none;
+    border-radius: 10px;
+    font-weight: bold;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .modal-btn.confirm {
+    background-color: #ACD3A8;
+  }
+  
+  .modal-btn.cancel {
+    background-color: #BB2A17;
+  }
+
+.app-title-link {
+    text-decoration: none;
+    color: black;
+  }
+  

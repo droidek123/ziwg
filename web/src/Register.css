@@ -37,6 +37,12 @@ body {
     padding: 12px 20px;
   }
   
+  .navigation-bar {
+    background-color: #3E3F5B;
+    color: white;
+    padding: 12px 24px;
+    font-weight: bold;
+  }
   .sidebar {
     position: fixed;
     top: 0;

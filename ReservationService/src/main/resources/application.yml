@@ -1,6 +1,19 @@
 spring:
   application:
     name: ReservationService
+  jpa:
+    hibernate:
+      ddl-auto: none
+      dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql:
+          true
+  datasource:
+    url: jdbc:postgresql://localhost:5432/ziwg_db
+    username: pwr
+    password: password
 server:
   port: 8081
 

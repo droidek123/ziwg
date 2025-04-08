@@ -24,6 +24,7 @@
         <module>Config</module>
         <module>Gateway</module>
         <module>ReservationService</module>
+        <module>AuthService</module>
     </modules>
 
     <build>

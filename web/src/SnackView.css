@@ -1,0 +1,174 @@
+.snackview-container {
+    background-color: #F6F1DE;
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    position: relative;
+  }
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+  
+  .app-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .menu-button {
+    font-size: 1.5rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .navigation-bar {
+    background-color: #3E3F5B;
+    color: white;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    font-size: 1.1rem;
+  }
+  
+  .snack-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .snack-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px;
+    background-color: #F6F1DE;
+    border-radius: 8px;
+  }
+  
+  .snack-image.narrow {
+    width: 50px;
+    height: 70px;
+    background-color: #ACD3A8;
+    border-radius: 6px;
+  }
+  
+  .snack-name {
+    font-weight: bold;
+    flex: 1;
+  }
+  
+  .snack-price {
+    margin-right: 8px;
+    white-space: nowrap;
+  }
+  
+  .snack-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+  
+  .snack-controls button {
+    padding: 4px 8px;
+    background-color: #3E3F5B;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 14px;
+  }
+  
+  .snack-controls span {
+    min-width: 20px;
+    text-align: center;
+  }
+  
+  .snack-submit {
+    text-align: center;
+    margin: 2rem 0;
+  }
+  
+  .snack-button {
+    background-color: #3E3F5B;
+    color: white;
+    padding: 0.7rem 2rem;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .modal {
+    background-color: #F6F1DE;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .modal-text {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+  }
+  
+  .modal-btn.confirm {
+    background-color: #ACD3A8;
+    border: none;
+    padding: 0.5rem 2rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    color: white;
+  }
+  
+  .sidebar {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #F6F1DE;
+    padding: 2rem 1rem;
+    z-index: 1001;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar li {
+    margin: 1rem 0;
+  }
+  
+  .sidebar a {
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: transparent;
+    z-index: 1000;
+  }
+  

@@ -82,7 +82,7 @@ export default function ReservationView() {
       </div>
 
       <div className="snack-order">
-        <button className="snack-button" onClick={() => navigate('/snacks')}>
+        <button className="snack-button" onClick={() => navigate('/ordersnacks')}>
           Zamów przekąski
         </button>
       </div>

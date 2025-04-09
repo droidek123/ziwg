@@ -21,14 +21,14 @@ function Login() {
 
   return (
     <div className="login-page">
-      <header className="header">
+      <div className="navbar">
         <h1 className="app-title">
           <Link to="/" className="app-link">nazwa aplikacji</Link>
         </h1>
         <button className="hamburger" onClick={toggleSidebar}>
           ☰
         </button>
-      </header>
+      </div>
 
       <nav className="navigation-bar">logowanie</nav>
 

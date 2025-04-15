@@ -4,6 +4,7 @@ import Register from './Register';
 import Login from './Login'; 
 import ReservationView from './ReservationView';
 import SnackView from './SnackView';
+import FilmDescription from './FilmDescrption';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/reservation" element={<ReservationView />} />
         <Route path="/ordersnacks" element={<SnackView />} />
+        <Route path="/filmdetails" element={<FilmDescription />} />
       </Routes>
     </Router>
   );

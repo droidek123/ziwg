@@ -20,7 +20,7 @@ npm i
 ```
 
 - ReservationService \- serwis do obsługi filmów i ich rezerwacji (działa na porcie 8081, ale można sie do niego dostać również przez port gate-way\`a czyli 8080)
-- UserService \- serwis do obsługi urzytkowników (działa na porcie 8082, ale można sie do niego dostać również przez port gate-way\`a czyli 8080)
+- UserService \- serwis do obsługi użytkowników (działa na porcie 8082, ale można sie do niego dostać również przez port gate-way\`a czyli 8080)
 
 - jak by ktoś chciał uruchomić to inaczej niż z ide to:
 ```

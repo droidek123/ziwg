@@ -59,18 +59,18 @@ body {
   border: 1px solid #ccc;
   font-size: 14px;
   width: 200px;
-  padding-left: 30px; /* Miejsce na ikonę lupki */
+  padding-left: 30px;
 }
 
 .search-container .fa-search {
   position: absolute;
   left: 10px;
-  color: black; /* Kolor ikony lupki */
+  color: black;
   font-size: 16px;
 }
 
 .search-container input {
-  padding-left: 30px; /* Miejsce na ikonę */
+  padding-left: 30px;
 }
 
 .sidebar {
@@ -196,7 +196,7 @@ body {
   background-color: #2f3049;
 }
 
-/* Nowe style dla pasku wyszukiwania */
+
 .search-container {
   position: relative;
   display: flex;
@@ -210,15 +210,15 @@ body {
   font-size: 14px;
   width: 250px;
   height: 19px;
-  padding-left: 30px; /* Miejsce na ikonę lupki */
-  background-color: #ACD3A8; /* Kolor tła na zielono */
+  padding-left: 30px;
+  background-color: #ACD3A8;
 
 }
 
 .search-container .fa-search {
   position: absolute;
   left: 10px;
-  color: black; /* Kolor ikony lupki */
+  color: black;
   font-size: 16px;
 }
 
@@ -234,7 +234,7 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 40px 30px; /* większe odstępy: wiersze 40px, kolumny 30px */
+  gap: 40px 30px;
   padding: 40px 20px;
   background-color: #F6F1DE;
   cursor: pointer;

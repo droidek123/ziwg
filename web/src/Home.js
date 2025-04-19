@@ -5,7 +5,7 @@ import './Home.css';
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
-  const [searchQuery, setSearchQuery] = useState(''); // stan dla wyszukiwania
+  const [searchQuery, setSearchQuery] = useState('');
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -37,7 +37,7 @@ const Home = () => {
 
   const dates = getDates();
 
-  // Funkcja obsługująca zmiany w pasku wyszukiwania
+
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
   };
@@ -58,9 +58,9 @@ const Home = () => {
 
      <nav className="navigation-bar">
        Repertuar
-       {/* Pasek wyszukiwania po prawej stronie */}
+
        <div className="search-container">
-         <i className="fa fa-search"></i> {/* Ikona lupki */}
+         <i className="fa fa-search"></i>
          <input
            type="text"
            className="search-bar"
@@ -72,7 +72,7 @@ const Home = () => {
      </nav>
 
 
-      {/* Nowy pasek z dniami */}
+
       <div className="day-selector">
         {dates.map((day, index) => (
           <button
@@ -85,7 +85,7 @@ const Home = () => {
           </button>
 
         ))}
-              {/* Przycisk "Filtruj po gatunku" poniżej navbaru */}
+
               <div className="filter-button-container">
                 <button className="filter-button">Filtruj po gatunku</button>
               </div>
@@ -101,10 +101,6 @@ const Home = () => {
       ))}
     </div>
 
-
-
-
-
       {sidebarOpen && (
         <>
           <div className="overlay" onClick={closeSidebar}></div>
@@ -113,6 +109,7 @@ const Home = () => {
               <li><Link to="/" onClick={closeSidebar}>Strona główna</Link></li>
               <li><Link to="/register" onClick={closeSidebar}>Zarejestruj się</Link></li>
               <li><Link to="/login" onClick={closeSidebar}>Zaloguj się</Link></li>
+              <li><Link to="/account" onClick={closeSidebar}>Moje konto</Link></li>
               <li><Link to="/reservation" onClick={closeSidebar}>Rezerwacja</Link></li>
               <li><Link to="/ordersnacks" onClick={closeSidebar}>Przekąski</Link></li>
               <li><Link to="/filmdetails" onClick={closeSidebar}>Szczegóły filmu</Link></li>
@@ -121,9 +118,6 @@ const Home = () => {
           </div>
         </>
       )}
-
-
-
 
     </div>
   );

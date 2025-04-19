@@ -1,0 +1,95 @@
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #F6F1DE;
+}
+
+.account-page {
+  min-height: 100vh;
+  background-color: #F6F1DE;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F6F1DE;
+  padding: 15px 20px;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.app-link {
+  color: inherit;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navigation-bar {
+  background-color: #3E3F5B;
+  color: white;
+  padding: 12px 24px;
+  font-weight: bold;
+}
+
+.account-header {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #3E3F5B;
+}
+
+.account-settings-container {
+  max-width: 500px;
+  margin: 40px auto;
+
+}
+
+.section-title {
+  font-size: 20px;
+  color: #3E3F5B;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.account-tile {
+  background-color: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #3E3F5B;
+  font-weight: bold;
+}
+
+.tile-item {
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #ACD3A8;
+  font-size: 16px;
+}
+
+.reservation-button-wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.reservation-button {
+  padding: 10px 25px;
+  background-color: #3E3F5B;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.reservation-button:hover {
+  background-color: #2f3049;
+}

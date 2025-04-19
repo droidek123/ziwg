@@ -7,6 +7,8 @@ import SnackView from './SnackView';
 import FilmDescription from './FilmDescrption';
 import TicketView from './TicketView';
 import Home from './Home';
+import Account from './Account';
+
 
 function App() {
   return (
@@ -19,6 +21,8 @@ function App() {
         <Route path="/ordersnacks" element={<SnackView />} />
         <Route path="/filmdetails" element={<FilmDescription />} />
         <Route path="/ticket" element={<TicketView />} />
+        <Route path="/account" element={<Account />} />
+
       </Routes>
     </Router>
   );

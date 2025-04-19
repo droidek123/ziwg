@@ -91,6 +91,20 @@ const Home = () => {
               </div>
       </div>
 
+    <div className="movie-grid-container">
+      {Array.from({ length: 20 }).map((_, index) => (
+        <div key={index} className="movie-tile">
+          <div className="movie-box"></div>
+          <div className="movie-title">Tytuł filmu {index + 1}</div>
+          <button className="reserve-button">Zarezerwuj</button>
+        </div>
+      ))}
+    </div>
+
+
+
+
+
       {sidebarOpen && (
         <>
           <div className="overlay" onClick={closeSidebar}></div>

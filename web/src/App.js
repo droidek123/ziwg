@@ -6,11 +6,13 @@ import ReservationView from './ReservationView';
 import SnackView from './SnackView';
 import FilmDescription from './FilmDescrption';
 import TicketView from './TicketView';
+import Home from './Home';
 
 function App() {
   return (
     <Router>
       <Routes>
+        <Route path="/" element={<Home />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
         <Route path="/reservation" element={<ReservationView />} />

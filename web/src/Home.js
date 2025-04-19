@@ -5,6 +5,7 @@ import './Home.css';
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+  const [searchQuery, setSearchQuery] = useState(''); // stan dla wyszukiwania
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -36,18 +37,40 @@ const Home = () => {
 
   const dates = getDates();
 
+  // Funkcja obsługująca zmiany w pasku wyszukiwania
+  const handleSearchChange = (event) => {
+    setSearchQuery(event.target.value);
+  };
+
   return (
     <div className="home-page">
       <div className="navbar">
         <h1 className="app-title">
           <Link to="/" className="app-link">nazwa aplikacji</Link>
         </h1>
+
+
+
         <button className="hamburger" onClick={toggleSidebar}>
           ☰
         </button>
       </div>
 
-      <nav className="navigation-bar">Repertuar</nav>
+     <nav className="navigation-bar">
+       Repertuar
+       {/* Pasek wyszukiwania po prawej stronie */}
+       <div className="search-container">
+         <i className="fa fa-search"></i> {/* Ikona lupki */}
+         <input
+           type="text"
+           className="search-bar"
+           placeholder="Szukaj..."
+           value={searchQuery}
+           onChange={handleSearchChange}
+         />
+       </div>
+     </nav>
+
 
       {/* Nowy pasek z dniami */}
       <div className="day-selector">
@@ -60,7 +83,12 @@ const Home = () => {
             {day.label}<br />
             <span className="date">{day.date}</span>
           </button>
+
         ))}
+              {/* Przycisk "Filtruj po gatunku" poniżej navbaru */}
+              <div className="filter-button-container">
+                <button className="filter-button">Filtruj po gatunku</button>
+              </div>
       </div>
 
       {sidebarOpen && (
@@ -68,23 +96,21 @@ const Home = () => {
           <div className="overlay" onClick={closeSidebar}></div>
           <div className="sidebar">
             <ul>
-              <li><Link to="/login" onClick={closeSidebar}>zaloguj się</Link></li>
-              <li><Link to="/register" onClick={closeSidebar}>zarejestruj się</Link></li>
-              <li><Link to="/account" onClick={closeSidebar}>moje konto</Link></li>
-              <li><Link to="/" onClick={closeSidebar}>wyloguj</Link></li>
+              <li><Link to="/" onClick={closeSidebar}>Strona główna</Link></li>
+              <li><Link to="/register" onClick={closeSidebar}>Zarejestruj się</Link></li>
+              <li><Link to="/login" onClick={closeSidebar}>Zaloguj się</Link></li>
+              <li><Link to="/reservation" onClick={closeSidebar}>Rezerwacja</Link></li>
+              <li><Link to="/ordersnacks" onClick={closeSidebar}>Przekąski</Link></li>
+              <li><Link to="/filmdetails" onClick={closeSidebar}>Szczegóły filmu</Link></li>
+              <li><Link to="/ticket" onClick={closeSidebar}>Bilet</Link></li>
             </ul>
           </div>
         </>
       )}
 
-      <div className="home-content">
-        <h2>Witaj w aplikacji!</h2>
-        <p>Tutaj możesz zacząć rezerwację lub zamówić przekąski.</p>
-        <div className="home-buttons">
-          <Link to="/reservation" className="home-button">Zarezerwuj</Link>
-          <Link to="/ordersnacks" className="home-button">Zamów przekąski</Link>
-        </div>
-      </div>
+
+
+
     </div>
   );
 };

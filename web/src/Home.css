@@ -29,11 +29,48 @@ body {
   padding: 15px 20px;
 }
 
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px;
+}
+
 .navigation-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background-color: #3E3F5B;
   color: white;
   padding: 12px 24px;
   font-weight: bold;
+}
+
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 200px;
+  padding-left: 30px; /* Miejsce na ikonę lupki */
+}
+
+.search-container .fa-search {
+  position: absolute;
+  left: 10px;
+  color: black; /* Kolor ikony lupki */
+  font-size: 16px;
+}
+
+.search-container input {
+  padding-left: 30px; /* Miejsce na ikonę */
 }
 
 .sidebar {
@@ -105,7 +142,7 @@ body {
 
 .day-selector {
   display: flex;
-  padding: 20px 10px;
+  padding: 0px 10px;
   background-color: #F6F1DE;
   flex-wrap: wrap;
 }
@@ -134,4 +171,59 @@ body {
 .day-button.selected {
   background-color: #3E3F5B;
   color: white;
+}
+
+.filter-button-container {
+  text-align: center;
+    margin-left: auto;
+    margin-top: 4px;
+
+}
+
+.filter-button {
+  padding: 10px 20px;
+  background-color: #3E3F5B;
+  color: white;
+  font-weight: bold;
+  border-radius: 8px;
+    border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+.filter-button:hover {
+  background-color: #2f3049;
+}
+
+/* Nowe style dla pasku wyszukiwania */
+.search-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.search-bar {
+  padding: inherit;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 250px;
+  height: 19px;
+  padding-left: 30px; /* Miejsce na ikonę lupki */
+  background-color: #ACD3A8; /* Kolor tła na zielono */
+
+}
+
+.search-container .fa-search {
+  position: absolute;
+  left: 10px;
+  color: black; /* Kolor ikony lupki */
+  font-size: 16px;
+}
+
+
+.search-bar::placeholder {
+  color: black;
+  opacity: 1;
 }

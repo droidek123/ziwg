@@ -8,6 +8,7 @@ import FilmDescription from './FilmDescrption';
 import TicketView from './TicketView';
 import Home from './Home';
 import Account from './Account';
+import PlaceReservationView from './PlaceReservationView';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
         <Route path="/filmdetails" element={<FilmDescription />} />
         <Route path="/ticket" element={<TicketView />} />
         <Route path="/account" element={<Account />} />
-
+        <Route path="/placereservation" element={<PlaceReservationView />} />
       </Routes>
     </Router>
   );

@@ -2,9 +2,11 @@ package pl.edu.pwr.zigw.service;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import pl.edu.pwr.zigw.domain.Repertuar;
 import pl.edu.pwr.zigw.model.Show;
 import pl.edu.pwr.zigw.repostiory.ShowRepository;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -17,8 +19,9 @@ public class ShowService {
         return showRepository.findById(id).orElse(null);
     }
 
-    public final List<Show> getShows() {
-        return showRepository.findAll();
+    public final List<Repertuar> getShows(Date showDate, String genere) {
+        List<Show> shows = showRepository.findAllByDate(showDate);
+        return shows.stream().map(Translator::translateShowToRepertuar).toList();
     }
 
     public Long addShow(Show show) {

@@ -3,11 +3,14 @@ package pl.edu.pwr.zigw.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwr.zigw.domain.Repertuar;
 import pl.edu.pwr.zigw.model.Movie;
 import pl.edu.pwr.zigw.model.Show;
 import pl.edu.pwr.zigw.service.ShowService;
 
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -26,8 +29,9 @@ public class ShowController {
 
     @GetMapping("/shows")
     @Operation(summary = "Get list of shows", description = "Adds a new show and returns its ID.")
-    public List<Show> getMovieList() {
-        return showService.getShows();
+    public List<Repertuar> getMovieList(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date showDate,
+                                        @RequestParam(required = false) String genere) {
+        return showService.getShows(showDate, genere);
     }
 
     @PostMapping("/show/new")

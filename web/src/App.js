@@ -9,6 +9,7 @@ import TicketView from './TicketView';
 import Home from './Home';
 import Account from './Account';
 import PlaceReservationView from './PlaceReservationView';
+import Confirmation from './Confirmation';
 
 
 function App() {
@@ -24,6 +25,7 @@ function App() {
         <Route path="/ticket" element={<TicketView />} />
         <Route path="/account" element={<Account />} />
         <Route path="/placereservation" element={<PlaceReservationView />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
     </Router>
   );

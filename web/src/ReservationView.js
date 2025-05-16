@@ -77,7 +77,7 @@ export default function ReservationView() {
           <button className="action-button" onClick={() => setShowModal(true)}>
             Odwołaj rezerwację
           </button>
-          <button className="action-button">Potwierdzenie rezerwacji</button>
+          <button className="action-button"onClick={() => navigate('/confirmation')}>Potwierdzenie rezerwacji</button>
         </div>
       </div>
 

@@ -114,6 +114,7 @@ const Home = () => {
               <li><Link to="/ordersnacks" onClick={closeSidebar}>Przekąski</Link></li>
               <li><Link to="/filmdetails" onClick={closeSidebar}>Szczegóły filmu</Link></li>
               <li><Link to="/ticket" onClick={closeSidebar}>Bilet</Link></li>
+              <li><Link to="/confirmation" onClick={closeSidebar}>Potwierdzenie</Link></li>
             </ul>
           </div>
         </>

@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   postgres:
     image: postgres:17-alpine
@@ -6,9 +8,11 @@ services:
     volumes:
       - ~/apps/postgres:/var/lib/postgresql/data
     environment:
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_USER=pwr
-      - POSTGRES_DB=ziwg_db
+      POSTGRES_PASSWORD: password
+      POSTGRES_USER: pwr
+      POSTGRES_DB: ziwg_db
+    networks:
+      - app-network
 
 #  web:
 #    build: ./web
@@ -16,14 +20,37 @@ services:
 #      - "3000:80"
 #    networks:
 #      - app-network
+  config:
+    build: ./Discovery
+    ports:
+      - "8888:8888"
+    networks:
+      - app-network
 
-#  user-service:
-#    build: ./userService
-#    ports:
-#      - "8080:8080"
-#    networks:
-#      - app-network
+  discovery:
+    build: ./Discovery
+    ports:
+      - "8761:8761"
+    networks:
+      - app-network
 
+  gateway:
+    build: ./Gateway
+    ports:
+      - "8080:8080"
+    networks:
+      - app-network
+
+  user-service:
+    build: ./UserService
+    ports:
+      - "8082:8082"
+    networks:
+      - app-network
+    depends_on:
+        - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ziwg_db
 networks:
   app-network:
     driver: bridge

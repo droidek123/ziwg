@@ -31,3 +31,9 @@ swagger dla serwisu znajduje się pod takim adresem
 ```
 http://localhost:{numer-portu}/swagger-ui/index.html
 ```
+
+Uruchamianie bazy danych (tymczasowo)
+
+```
+docker-compose up -d
+```

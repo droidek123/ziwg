@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   postgres:
     image: postgres:17-alpine
@@ -14,14 +12,15 @@ services:
     networks:
       - app-network
 
-#  web:
-#    build: ./web
+  auth-service:
+    build: ./AuthService
 #    ports:
-#      - "3000:80"
-#    networks:
-#      - app-network
+#      - "???:???"
+    networks:
+      - app-network
+
   config:
-    build: ./Discovery
+    build: ./Config
     ports:
       - "8888:8888"
     networks:
@@ -41,6 +40,17 @@ services:
     networks:
       - app-network
 
+  reservation-service:
+    build: ./ReservationService
+    ports:
+      - "8081:8081"
+    networks:
+      - app-network
+    depends_on:
+        - postgres
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ziwg_db
+
   user-service:
     build: ./UserService
     ports:
@@ -51,6 +61,21 @@ services:
         - postgres
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ziwg_db
+
+  utils:
+    build: ./Utils
+    networks:
+      - app-network
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/ziwg_db
+
+  web:
+    build: ./web
+    ports:
+      - "3000:80"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge

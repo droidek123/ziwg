@@ -43,7 +43,7 @@ services:
   reservation-service:
     build: ./ReservationService
     ports:
-      - "8083:8083"
+      - "8081:8081"
     networks:
       - app-network
     depends_on:

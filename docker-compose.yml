@@ -12,7 +12,7 @@ services:
     networks:
       - app-network
 
-  auth:
+  auth-service:
     build: ./AuthService
 #    ports:
 #      - "???:???"
@@ -20,7 +20,7 @@ services:
       - app-network
 
   config:
-    build: ./Discovery
+    build: ./Config
     ports:
       - "8888:8888"
     networks:

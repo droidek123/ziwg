@@ -1,13 +1,13 @@
 spring:
   application:
-    name: Gateway
+    name: Discovery
 
 server:
   port: 8761
 
 eureka:
   instance:
-    hostname: localhost
+    hostname: discovery
   client:
     fetch-registry: false
     register-with-eureka: false

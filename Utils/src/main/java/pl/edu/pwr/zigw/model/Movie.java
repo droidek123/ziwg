@@ -28,4 +28,8 @@ public class Movie {
 
     private Float rating;
 
+    private String description;
+
+    private String genere;
+
 }

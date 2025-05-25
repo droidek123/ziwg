@@ -4,6 +4,7 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwr.zigw.dto.MovieDto;
 import pl.edu.pwr.zigw.model.Movie;
 import pl.edu.pwr.zigw.service.MovieService;
 
@@ -19,7 +20,7 @@ public class MovieController {
 
     @GetMapping("/movie/{id}")
     @Operation(summary = "Get movie by id", description = "Adds a new reservation and returns its ID.")
-    public Movie getMovie(@RequestParam Long id) {
+    public MovieDto getMovie(@RequestParam Long id) {
         return movieService.getMovieById(id);
     }
 

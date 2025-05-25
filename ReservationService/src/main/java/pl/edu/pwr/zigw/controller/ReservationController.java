@@ -3,7 +3,9 @@ package pl.edu.pwr.zigw.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwr.zigw.dto.ReservationDto;
 import pl.edu.pwr.zigw.model.Reservation;
 import pl.edu.pwr.zigw.service.ReservationService;
 
@@ -23,12 +25,6 @@ public class ReservationController {
         return this.reservationService.getReservations();
     }
 
-    @GetMapping
-    @Operation(summary = "Get reservation by ID", description = "Retrieves a single reservation based on the provided ID.")
-    public Reservation getReservation(@RequestParam Long id) {
-        return this.reservationService.getReservationById(id);
-    }
-
     @PostMapping("reservations/new")
     @Operation(summary = "Create a new reservation", description = "Adds a new reservation and returns its ID.")
     public Long addReservation(@RequestBody Reservation reservation) {
@@ -45,5 +41,23 @@ public class ReservationController {
     @Operation(summary = "Delete a reservation", description = "Deletes the reservation with the specified ID and returns whether the operation was successful.")
     public Boolean deleteReservation(@RequestParam Long id) {
         return reservationService.deleteReservation(id);
+    }
+
+    @GetMapping("/{id}")
+    @Operation(summary = "Get reservation by ID", description = "Retrieves a single reservation based on the provided ID.")
+    public ReservationDto getReservation(@PathVariable Long id) {
+        return this.reservationService.getReservation(id);
+    }
+
+    @PostMapping("/{id}/update-status")
+    public ResponseEntity<?> updateReservationStatus(
+            @PathVariable Long id, @RequestParam String status) {
+        return reservationService.updateStatus(id, status);
+    }
+
+    @PostMapping("/{id}/select-seat")
+    public ResponseEntity<?> selectSeat(
+            @PathVariable Long id, @RequestParam Long seatId, @RequestParam Long userId) {
+        return reservationService.assignSeat(id, seatId, userId);
     }
 }

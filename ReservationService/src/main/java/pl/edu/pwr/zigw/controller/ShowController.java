@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pwr.zigw.domain.Repertuar;
-import pl.edu.pwr.zigw.model.Movie;
 import pl.edu.pwr.zigw.model.Show;
 import pl.edu.pwr.zigw.service.ShowService;
 

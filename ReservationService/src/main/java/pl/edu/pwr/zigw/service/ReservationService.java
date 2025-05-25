@@ -1,9 +1,16 @@
 package pl.edu.pwr.zigw.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import pl.edu.pwr.zigw.dto.ReservationDto;
 import pl.edu.pwr.zigw.model.Reservation;
+import pl.edu.pwr.zigw.model.Seat;
+import pl.edu.pwr.zigw.model.Show;
+import pl.edu.pwr.zigw.model.User;
 import pl.edu.pwr.zigw.repostiory.ReservationRepository;
+import pl.edu.pwr.zigw.repostiory.SeatRepository;
+import pl.edu.pwr.zigw.repostiory.ShowRepository;
 
 import java.util.List;
 
@@ -12,13 +19,12 @@ import java.util.List;
 public class ReservationService {
 
     private final ReservationRepository reservationRepository;
+    private final SeatRepository seatRepository;
+//    private final UserRepository userRepository;
+    private final ShowRepository showRepository;
 
     public List<Reservation> getReservations() {
         return reservationRepository.findAll();
-    }
-
-    public Reservation getReservationById(Long id) {
-        return reservationRepository.findById(id).orElse(null);
     }
 
     public Long addReservation(Reservation reservation) {
@@ -42,6 +48,54 @@ public class ReservationService {
         reservationRepository.delete(reservation);
         return true;
     }
+
+    public List<ReservationDto> getReservationsByUser(Long userId) {
+        return reservationRepository.findByUserId(userId)
+                .stream().map(ReservationDto::new).toList();
+    }
+
+    public ReservationDto getReservation(Long id) {
+        return new ReservationDto(reservationRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Reservation not found")));
+    }
+
+//    public ResponseEntity<?> reserveMovie(Long movieId, Long userId) {
+//        // Simplified
+//        Show show = showRepository.findFirstByMovieId(movieId)
+//                .orElseThrow(() -> new RuntimeException("Show not found"));
+//        User user = userRepository.findById(userId).orElseThrow();
+//
+//        Reservation res = Reservation.builder()
+//                .status("PENDING")
+//                .user(user)
+//                .show(show)
+//                .build();
+//
+//        reservationRepository.save(res);
+//        return ResponseEntity.ok(new ReservationDto(res));
+//    }
+
+    public ResponseEntity<?> assignSeat(Long reservationId, Long seatId, Long userId) {
+        Reservation res = reservationRepository.findById(reservationId).orElseThrow();
+        Seat seat = seatRepository.findById(seatId).orElseThrow();
+        res.setSeat(seat);
+        reservationRepository.save(res);
+        return ResponseEntity.ok("Seat assigned");
+    }
+
+    public ResponseEntity<?> updateStatus(Long id, String status) {
+        Reservation res = reservationRepository.findById(id).orElseThrow();
+        res.setStatus(status);
+        reservationRepository.save(res);
+        return ResponseEntity.ok("Status updated");
+    }
+
+    public ResponseEntity<?> removeReservation(Long id) {
+        reservationRepository.deleteById(id);
+        return ResponseEntity.ok("Reservation removed");
+    }
+
+
 
     // todo  pewnie pobieranie reservacji per user
     // todo ogarnąć czy na froncie nie ma jakieś paginacji

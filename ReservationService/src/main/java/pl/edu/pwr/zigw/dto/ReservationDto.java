@@ -17,7 +17,7 @@ public class ReservationDto {
     public ReservationDto(Reservation res) {
         this.id = res.getId();
         this.status = res.getStatus();
-        this.userId = res.getUser().getId();
+        this.userId = res.getUser() != null ? res.getUser().getId() : null;
         this.seatId = res.getSeat() != null ? res.getSeat().getId() : null;
     }
 }

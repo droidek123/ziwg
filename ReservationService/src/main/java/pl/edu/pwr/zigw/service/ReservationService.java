@@ -11,6 +11,7 @@ import pl.edu.pwr.zigw.model.User;
 import pl.edu.pwr.zigw.repostiory.ReservationRepository;
 import pl.edu.pwr.zigw.repostiory.SeatRepository;
 import pl.edu.pwr.zigw.repostiory.ShowRepository;
+import pl.edu.pwr.zigw.repostiory.UserRepository;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class ReservationService {
 
     private final ReservationRepository reservationRepository;
     private final SeatRepository seatRepository;
-//    private final UserRepository userRepository;
+    private final UserRepository userRepository;
     private final ShowRepository showRepository;
 
     public List<Reservation> getReservations() {
@@ -59,21 +60,21 @@ public class ReservationService {
                 .orElseThrow(() -> new RuntimeException("Reservation not found")));
     }
 
-//    public ResponseEntity<?> reserveMovie(Long movieId, Long userId) {
-//        // Simplified
-//        Show show = showRepository.findFirstByMovieId(movieId)
-//                .orElseThrow(() -> new RuntimeException("Show not found"));
-//        User user = userRepository.findById(userId).orElseThrow();
-//
-//        Reservation res = Reservation.builder()
-//                .status("PENDING")
-//                .user(user)
-//                .show(show)
-//                .build();
-//
-//        reservationRepository.save(res);
-//        return ResponseEntity.ok(new ReservationDto(res));
-//    }
+    public ResponseEntity<?> reserveMovie(Long movieId, Long userId) {
+        // Simplified
+        Show show = showRepository.findFirstByMovieId(movieId)
+                .orElseThrow(() -> new RuntimeException("Show not found"));
+        User user = userRepository.findById(userId).orElseThrow();
+
+        Reservation res = Reservation.builder()
+                .status("PENDING")
+                .user(user)
+                .show(show)
+                .build();
+
+        reservationRepository.save(res);
+        return ResponseEntity.ok(new ReservationDto(res));
+    }
 
     public ResponseEntity<?> assignSeat(Long reservationId, Long seatId, Long userId) {
         Reservation res = reservationRepository.findById(reservationId).orElseThrow();

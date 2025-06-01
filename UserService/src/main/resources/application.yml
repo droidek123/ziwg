@@ -11,7 +11,8 @@ spring:
         format_sql:
           true
   datasource:
-    url: jdbc:postgresql://localhost:5432/ziwg_db
+    url: jdbc:postgresql://localhost:5432/ziwg_db  #kiedy robisz lokalnie
+#    url: jdbc:postgresql://postgres:5432/ziwg_db # kiedy docker-compose
     username: pwr
     password: password
 server:

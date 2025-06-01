@@ -10,19 +10,29 @@ services:
       - POSTGRES_USER=pwr
       - POSTGRES_DB=ziwg_db
 
-#  web:
-#    build: ./web
-#    ports:
-#      - "3000:80"
-#    networks:
-#      - app-network
+  eureka-server:
+    build:
+      context: .
+      dockerfile: Discovery/Dockerfile
+    ports:
+      - "8761:8761"
+    networks:
+      - app-network
 
 #  user-service:
-#    build: ./userService
+#    build:
+#      context: .
+#      dockerfile: UserService/Dockerfile
+#    depends_on:
+#      - eureka-server
+#    environment:
+#      - EUREKA_CLIENT_SERVICEURL_DEFAULTZONE=http://eureka-server:8761/eureka/
 #    ports:
-#      - "8080:8080"
+#      - "8082:8082"
 #    networks:
 #      - app-network
+#    command: sh -c "sleep 15 && java -jar app.jar"
+
 
 networks:
   app-network:

@@ -1,10 +1,28 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Account.css';
 
 const Account = () => {
-  const userName = "User Name"; // tymczasowo na sztywno
+  const [userData, setUserData] = useState(null);
   const [showSidebar, setShowSidebar] = useState(false);
+
+  const userId = 5; // na sztywno — docelowo pobieraj z auth/localStorage/cookies
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8082/user/user/${userId}`, {
+          params: { userId } // albo bez tego, jeśli Spring nie potrzebuje dwóch
+        });
+        setUserData(response.data);
+      } catch (error) {
+        console.error('Błąd podczas pobierania danych użytkownika:', error);
+      }
+    };
+
+    fetchUserData();
+  }, [userId]);
 
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
@@ -35,20 +53,18 @@ const Account = () => {
         </>
       )}
 
-      <nav className="navigation-bar">
-        Moje konto
-      </nav>
+      <nav className="navigation-bar">Moje konto</nav>
 
       <div className="account-header">
-        <h2>Witaj, {userName}!</h2>
+        <h2>Witaj, {userData ? userData.username : '...'}!</h2>
       </div>
 
       <div className="account-settings-container">
         <h3 className="section-title">Ustawienia konta</h3>
 
         <div className="account-tile">
-          <div className="tile-item">📧 Email: user@example.com</div>
-          <div className="tile-item">👤 Login: user.nickname</div>
+          <div className="tile-item">📧 Email: {userData ? userData.email : '...'}</div>
+          <div className="tile-item">👤 Login: {userData ? userData.name : '...'}</div>
           <div className="tile-item">🔒 Hasło: ********</div>
         </div>
 

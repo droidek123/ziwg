@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import './Home.css';
 
 const Home = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
   const [searchQuery, setSearchQuery] = useState('');
+  const [shows, setShows] = useState([]);
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -17,7 +19,7 @@ const Home = () => {
 
   const getDates = () => {
     const today = new Date();
-    const options = { day: '2-digit', month: '2-digit' };
+    const shortFormat = { day: '2-digit', month: '2-digit' };
     const labels = ['dzisiaj', 'jutro'];
 
     const result = [];
@@ -28,14 +30,31 @@ const Home = () => {
       const label = labels[i] || date.toLocaleDateString('pl-PL', { weekday: 'long' });
       result.push({
         label: label.charAt(0).toUpperCase() + label.slice(1),
-        date: date.toLocaleDateString('pl-PL', options),
+        date: date.toLocaleDateString('pl-PL', shortFormat),
+        keyDate: date.toISOString().split('T')[0],
       });
     }
-
     return result;
   };
 
   const dates = getDates();
+
+  useEffect(() => {
+    const fetchShows = async () => {
+      try {
+        const selectedDate = dates[selectedDayIndex].keyDate;
+        console.log(selectedDate);
+        const response = await axios.get('http://localhost:8081/show/shows', {
+          params: { showDate: selectedDate }
+        });
+        setShows(response.data);
+      } catch (error) {
+        console.error('Błąd podczas pobierania pokazów filmowych:', error);
+      }
+    };
+
+    fetchShows();
+  }, [selectedDayIndex]);
 
 
   const handleSearchChange = (event) => {
@@ -91,15 +110,20 @@ const Home = () => {
               </div>
       </div>
 
-    <div className="movie-grid-container">
-      {Array.from({ length: 20 }).map((_, index) => (
-        <div key={index} className="movie-tile">
-          <div className="movie-box"></div>
-          <div className="movie-title">Tytuł filmu {index + 1}</div>
-          <button className="reserve-button">Zarezerwuj</button>
-        </div>
-      ))}
-    </div>
+      <div className="movie-grid-container">
+        {shows.length > 0 ? (
+          shows.map((show, index) => (
+            <div key={show.id || index} className="movie-tile">
+              <div className="movie-box"></div>
+              <div className="movie-title">{show.title}</div>
+              <div className="show-time">⏰ {show.showTime}</div>
+              <button className="reserve-button">Zarezerwuj</button>
+            </div>
+          ))
+        ) : (
+          <div className="no-shows">Brak pokazów dla wybranego dnia.</div>
+        )}
+      </div>
 
       {sidebarOpen && (
         <>

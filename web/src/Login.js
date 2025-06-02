@@ -1,10 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import axios from 'axios';
 import './Login.css';
 
 function Login() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
+
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
   const toggleSidebar = () => {
     setSidebarOpen(!sidebarOpen);
@@ -14,9 +18,24 @@ function Login() {
     setSidebarOpen(false);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault(); 
-    navigate('/'); 
+    // navigate('/'); 
+    try {
+      const response = await axios.post('http://localhost:8084/auth/login', {
+        username,
+        password
+      });
+
+      alert('Rejestracja zakończona sukcesem!');
+      // navigate('/login');
+    } catch (error) {
+      if (error.response) {
+        alert(`Błąd: ${error.response.data.message || error.response.status}`);
+      } else {
+        alert('Błąd połączenia z serwerem');
+      }
+    }
   };
 
   return (
@@ -48,10 +67,22 @@ function Login() {
 
       <form className="login-form" onSubmit={handleSubmit}>
         <label htmlFor="username">nazwa użytkownika</label>
-        <input type="text" id="username" required />
+        <input 
+          type="text" 
+          id="username" 
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+          required 
+        />
 
         <label htmlFor="password">hasło</label>
-        <input type="password" id="password" required />
+        <input 
+          type="password" 
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required 
+        />
 
         <button type="submit">Zaloguj</button>
       </form>

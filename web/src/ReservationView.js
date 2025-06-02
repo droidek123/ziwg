@@ -1,12 +1,15 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./ReservationView.css";
 import { useNavigate, Link } from "react-router-dom";
+import axios from "axios";
 
 export default function ReservationView() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
+  const [reservation, setReservation] = useState(null);
+  const id  = 1; // TODO ID z URL
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -24,6 +27,19 @@ export default function ReservationView() {
     setShowModal(false);
     navigate("/reservation");
   };
+
+  useEffect(() => {
+    const fetchReservation = async () => {
+      try {
+        const res = await axios.get(`http://localhost:8081/reservation/${id}`);
+        setReservation(res.data);
+      } catch (err) {
+        console.error("Błąd pobierania rezerwacji:", err);
+      }
+    };
+  
+    fetchReservation();
+  }, [id]);
 
   const closeSidebar = () => setMenuOpen(false);
 
@@ -56,7 +72,7 @@ export default function ReservationView() {
         </>
       )}
 
-      <div className="navigation-bar">zarządzanie rezerwacją</div>
+      <div className="navigation-bar">Zarządzanie rezerwacją</div>
 
       <div className="main-content">
         {/* Plakat filmu */}
@@ -65,12 +81,12 @@ export default function ReservationView() {
         <div className="reservation-details">
           <h2 className="movie-title">
             <Link to={`/film/${filmId}`} style={{ textDecoration: 'none', color: 'black' }}>
-              Tytuł filmu
+            {reservation ? reservation.title : null}
             </Link>
           </h2>
-          <p className="info-text">data, godzina</p>
-          <p className="info-text">sala</p>
-          <p className="info-text">miejsca</p>
+          <p className="info-text">Data: {reservation ? reservation.date : null}</p>
+          <p className="info-text">Sala: {reservation ? reservation.cinemaRoom : null}</p>
+          <p className="info-text">Miejsce: {reservation ? reservation.seatNumber : null}, Rząd: {reservation ? reservation.sector : null}</p>
         </div>
 
         <div className="action-buttons">

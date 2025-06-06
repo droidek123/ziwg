@@ -19,19 +19,16 @@ function Login() {
   };
 
   const handleSubmit = async (event) => {
-    event.preventDefault(); 
-    // navigate('/'); 
+    event.preventDefault();
     try {
       const response = await axios.post('http://localhost:8084/auth/login', {
         username,
         password
       });
-
-      alert('Rejestracja zakończona sukcesem!');
-      // navigate('/login');
+      // navigate('/');
     } catch (error) {
       if (error.response) {
-        alert(`Błąd: ${error.response.data.message || error.response.status}`);
+        alert(`Niepoprawna nazwa użytkownika lub hasło`);
       } else {
         alert('Błąd połączenia z serwerem');
       }

@@ -1,6 +1,7 @@
 package pl.edu.pwr.zigw.service;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.edu.pwr.zigw.model.User;
 import pl.edu.pwr.zigw.repository.UserRepository;

@@ -1,6 +1,7 @@
 package pl.edu.pwr.zigw.controller;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.pwr.zigw.model.User;
 import pl.edu.pwr.zigw.request.RegisterRequest;
@@ -14,6 +15,8 @@ import java.util.List;
 public class UserController {
 
     private final UserService userService;
+
+    private final PasswordEncoder passwordEncoder;
 
     @GetMapping("/users")
     public List<User> getUsers() {
@@ -30,13 +33,8 @@ public class UserController {
         User user = User.builder()
                 .email(request.getEmail())
                 .name(request.getUsername())
-                .password(request.getPassword())
+                .password(passwordEncoder.encode(request.getPassword()))
                 .build();
-//        User user = new User();
-//        user.setEmail(email);
-//        user.setPassword(password);
-//        user.setName(name);
-//        user.setLastName(lastName);
         return this.userService.createUser(user);
     }
 

@@ -1,20 +1,19 @@
 .ticket-content {
-    display: flex;
-    flex-direction: row;
-    padding: 20px;
-    gap: 20px;
-    max-height: max-content;
-  }
+  display: flex;
+  flex-direction: row;
+  padding: 20px;
+  gap: 2%;
+  /* max-height: max-content; */
+  justify-content: space-between;
+  align-items: flex-start;
+}
   
   .ticket-poster {
-    width: 20%;
-    min-width: 220px;
+    min-width: 18%;
     aspect-ratio: 2 / 3;
     background-color: #88A79D;
     background-size: cover;
     background-position: center;
-    flex-shrink: 0;
-    height: auto;
   }
   
   .ticket-texts {

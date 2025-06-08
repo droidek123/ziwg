@@ -1,15 +1,23 @@
+.ticket-page {
+    font-family: Arial, sans-serif;
+    background-color: #F6F1DE;
+    margin: 0;
+    padding: 0;
+    position: relative;
+  }
+
 .ticket-content {
   display: flex;
   flex-direction: row;
-  padding: 20px;
+  margin: 1em;
   gap: 2%;
-  /* max-height: max-content; */
   justify-content: space-between;
   align-items: flex-start;
 }
   
   .ticket-poster {
     min-width: 18%;
+    border-radius: 0.8em;
     aspect-ratio: 2 / 3;
     background-color: #88A79D;
     background-size: cover;
@@ -23,12 +31,6 @@
     justify-content: flex-start;
   }
   
-  .cinema-logo {
-    width: 180px;
-    height: auto;
-    margin-bottom: 20px;
-  }
-  
   .ticket-movie-title {
     margin-top: 0;
     font-size: 24px;
@@ -36,6 +38,7 @@
   }
   
   .ticket-description {
+    border-radius: 0.8em;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -47,6 +50,12 @@
   .ticket-description p {
     margin: 6px 0;
     font-size: 16px;
+  }
+
+  .cinema-logo {
+    width: 180px;
+    height: auto;
+    margin-bottom: 20px;
   }
   
   .ticket-qr {

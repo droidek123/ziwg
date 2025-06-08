@@ -19,8 +19,8 @@ function TicketView() {
   };
 
   return (
-    <div className="movie-page">
-      <header className="header">
+    <div className="ticket-page">
+      <header className="navbar">
         <h1 className="app-title">
           <Link to="/" className="app-link">nazwa aplikacji</Link>
         </h1>

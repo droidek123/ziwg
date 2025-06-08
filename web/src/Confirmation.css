@@ -67,18 +67,20 @@ body {
 
 .main-content {
   display: flex;
-  gap: 24px;
+  gap: 2%;
   padding: 24px;
   flex-wrap: wrap;
 }
 
 .movie-poster {
-  width: 220px;
-  height: 280px;
+  border-radius: 0.8em;
+  width: 18%;
+  aspect-ratio: 2/3;
   background-color: #ACD3A8;
 }
 
 .reservation-details {
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: start;

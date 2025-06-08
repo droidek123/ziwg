@@ -76,7 +76,7 @@ export default function ReservationView() {
 
       <div className="main-content">
         {/* Plakat filmu */}
-        <div className="movie-poster" />
+        <div className="movie-r-poster" />
 
         <div className="reservation-details">
           <h2 className="movie-title">

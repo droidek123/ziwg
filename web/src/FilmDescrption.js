@@ -26,14 +26,14 @@ function MovieDetail() {
 
   return (
     <div className="movie-page">
-      <header className="header">
+      <header className="navbar">
         <h1 className="app-title">
           <Link to="/" className="app-link">nazwa aplikacji</Link>
         </h1>
         <button className="hamburger" onClick={toggleSidebar}>☰</button>
       </header>
 
-      <nav className="navigation-bar">{movie?.title}</nav>
+      <nav className="navigation-bar">{movie?.title || 'Sczegóły filmu'}</nav>
 
       {sidebarOpen && (
         <>
@@ -49,18 +49,17 @@ function MovieDetail() {
         </>
       )}
 
-      <div className="movie-content">
-        <div className="movie-poster" />
-        <div className='movie-texts'>
-          <h2 className="movie-title">{movie?.title || 'Tytuł filmu'}</h2>
-          <div className="movie-description">
-            <p className="movie-text">{movie?.description || 'opis filmu'}</p>
+      <div className="movie-ds-content">
+        <div className="movie-ds-poster"></div>
+        <div className='movie-ds-texts'>
+          <h2 className="movie-ds-title">{movie?.title || 'Tytuł filmu'}</h2>
+          <div className="movie-ds-description">
+            <p className="movie-ds-text">{movie?.description || 'opis filmu'}</p>
+          </div>
+          <div className="button-container">
+            <button className="reserve-button">Zarezerwuj</button>
           </div>
         </div>
-      </div>
-
-      <div className="button-container">
-        <button className="reserve-button">Zarezerwuj</button>
       </div>
     </div>
   );

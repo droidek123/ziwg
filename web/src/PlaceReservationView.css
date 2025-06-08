@@ -1,87 +1,21 @@
-/* Reset */
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-  }
-  
-  body, html {
-    font-family: sans-serif;
-    background-color: #f5efdb;
-  }
-  
-  /* Header */
-  .header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #3b3654;
-    padding: 1rem;
-  }
-  
-  .app-title .app-link {
-    text-decoration: none;
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  .hamburger {
-    font-size: 1.5rem;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-  }
-  
-  /* Sidebar */
-  .overlay {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: 9;
-  }
-  
-  .sidebar {
-    position: fixed;
-    top: 0; right: 0;
-    width: 200px;
-    height: 100%;
-    background: #fff;
-    padding: 1rem;
-    z-index: 10;
-  }
-  
-  .sidebar ul {
-    list-style: none;
-  }
-  
-  .sidebar li {
-    margin-bottom: 1rem;
-  }
-  
-  /* Navigation */
-  .navigation-bar {
-    background-color: #3b3654;
-    color: white;
-    padding: 0.5rem 1rem;
-  }
-  
   /* Main Content */
   .reservation-content {
     display: flex;
-    padding: 1.5rem;
-    gap: 2rem;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin: 1em;
+    gap: 2%;
   }
   
-  .movie-poster {
-    width: 100px;
-    aspect-ratio: 1 / 1.48;
+  .movie-pr-poster {
+    border-radius: 0.8em;
+    width: 18%;
+    aspect-ratio: 2 / 3;
     background-color: #7ba19e;
   }
   
   .reservation-info {
-    flex: 1;
+    width: 80%
   }
   
   .select-date {
@@ -106,6 +40,7 @@
   }
   
   .seating-view {
+    border-radius: 0.8em 0.8em 0 0;
     background-color: #c0dfb6;
     height: 200px;
     margin-top: 1rem;
@@ -115,6 +50,7 @@
   }
   
   .legend {
+    border-radius: 0 0 0.8em 0.8em;
     background-color: #a8d4a0;
     padding: 0.5rem;
     text-align: center;

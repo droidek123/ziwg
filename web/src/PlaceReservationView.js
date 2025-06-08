@@ -10,7 +10,7 @@ function ReservationView() {
 
   return (
     <div className="reservation-page">
-      <header className="header">
+      <header className="navbar">
         <h1 className="app-title">
           <Link to="/" className="app-link">nazwa aplikacji</Link>
         </h1>
@@ -34,7 +34,7 @@ function ReservationView() {
       )}
 
       <div className="reservation-content">
-        <div className="movie-poster" />
+        <div className="movie-pr-poster" />
         <div className="reservation-info">
           <h2 className="movie-title">Tytuł filmu</h2>
           <div className="select-date">
@@ -51,12 +51,12 @@ function ReservationView() {
             <div className="seating-view">widok sali</div>
             <div className="legend">legenda</div>
           </div>
+          <div className="button-container">
+            <button className="reserve-button">Zarezerwuj</button>
+          </div>
         </div>
       </div>
 
-      <div className="button-container">
-        <button className="reserve-button">Zarezerwuj</button>
-      </div>
     </div>
   );
 }

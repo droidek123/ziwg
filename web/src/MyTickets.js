@@ -3,7 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import './MyTickets.css';
 
-function Login() {
+function MyTickets() {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -64,7 +64,7 @@ function Login() {
 
       {/* container to hold ticket containers */}
       <div className='tickets-container'>
-        {/* ticket container */}
+        {/* TICKET */}
         <div className='ticket'>
           {/* image */}
           <div className='poster'></div>
@@ -73,10 +73,6 @@ function Login() {
             <p><strong>Film Name</strong></p>
             <p><strong>Data: </strong></p>
             <p><strong>Godzina: </strong></p>
-            <p><strong>Kino: </strong></p>
-            <p><strong>Adres: </strong></p>
-            <p><strong>Miejsce: </strong></p>
-            <p><strong>Kod rezerwacji: </strong></p>
           </div>
         </div>
         <div className='ticket'>
@@ -87,10 +83,6 @@ function Login() {
             <p><strong>Film Name</strong></p>
             <p><strong>Data: </strong></p>
             <p><strong>Godzina: </strong></p>
-            <p><strong>Kino: </strong></p>
-            <p><strong>Adres: </strong></p>
-            <p><strong>Miejsce: </strong></p>
-            <p><strong>Kod rezerwacji: </strong></p>
           </div>
         </div>
         <div className='ticket'>
@@ -101,17 +93,11 @@ function Login() {
             <p><strong>Film Name</strong></p>
             <p><strong>Data: </strong></p>
             <p><strong>Godzina: </strong></p>
-            <p><strong>Kino: </strong></p>
-            <p><strong>Adres: </strong></p>
-            <p><strong>Miejsce: </strong></p>
-            <p><strong>Kod rezerwacji: </strong></p>
           </div>
         </div>
       </div>
-
-
     </div>
   );
 }
 
-export default Login;
+export default MyTickets;

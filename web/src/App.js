@@ -26,8 +26,8 @@ function App() {
         <Route path="/ordersnacks" element={<SnackView />} />
         <Route path="/placereservation" element={<PlaceReservationView />} />
         {/* it is decided that no use for them */}
-        {/* <Route path="/reservation" element={<ReservationView />} /> */}
-        {/* <Route path="/confirmation" element={<Confirmation />} /> */}
+        <Route path="/reservation" element={<ReservationView />} />
+        <Route path="/confirmation" element={<Confirmation />} />
       </Routes>
     </Router>
   );

@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
+import { jwtDecode } from 'jwt-decode';
+import { useContext } from 'react';
+import { AuthContext } from './AuthContext';
 import './Login.css';
 
 function Login() {
+  const { login } = useContext(AuthContext);
+
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -25,7 +30,19 @@ function Login() {
         username,
         password
       });
-      // navigate('/');
+  
+      const token = response.data;
+  
+      // Zapisz token do localStorage
+      localStorage.setItem('jwtToken', token);
+  
+      // Dekoduj token i wyciągnij userId
+      const decoded = jwtDecode(token);
+      const userId = decoded.userId;
+  
+      login(userId);
+      navigate('/'); // możesz przekazać userId też przez context
+  
     } catch (error) {
       if (error.response) {
         alert(`Niepoprawna nazwa użytkownika lub hasło`);

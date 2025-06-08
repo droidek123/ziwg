@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.pwr.zigw.domain.ReservationRequest;
 import pl.edu.pwr.zigw.dto.ReservationDto;
 import pl.edu.pwr.zigw.model.Reservation;
 import pl.edu.pwr.zigw.service.ReservationService;
@@ -59,5 +60,22 @@ public class ReservationController {
     public ResponseEntity<?> selectSeat(
             @PathVariable Long id, @RequestParam Long seatId, @RequestParam Long userId) {
         return reservationService.assignSeat(id, seatId, userId);
+    }
+
+    @PostMapping("/reservations/create")
+    @Operation(summary = "Make reservation", description = "Make reservation.")
+    public ResponseEntity<Long> createReservation(@RequestBody ReservationRequest request) {
+        Long reservationId = reservationService.addReservation(request);
+        return ResponseEntity.ok(reservationId);
+    }
+
+    @PutMapping("/reservations/{id}/cancel")
+    public ResponseEntity<String> cancelReservation(@PathVariable Long id) {
+        boolean success = reservationService.cancelReservation(id);
+        if (success) {
+            return ResponseEntity.ok("Rezerwacja została odwołana.");
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 }

@@ -37,7 +37,7 @@ function Register() {
       });
 
       alert('Rejestracja zakończona sukcesem!');
-      // navigate('/login');
+      navigate('/login');
     } catch (error) {
       if (error.response) {
         alert(`Błąd: ${error.response.data.message || error.response.status}`);

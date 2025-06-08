@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import pl.edu.pwr.zigw.domain.Repertuar;
 import pl.edu.pwr.zigw.model.Show;
 
-import java.util.List;
 
 @Service
 public class Translator {
@@ -14,6 +13,7 @@ public class Translator {
                 .showId(show.getId())
                 .movieId(show.getMovie().getId())
                 .title(show.getMovie().getTitle())
+                 .date(show.getDate())
                 .build();
     }
 }

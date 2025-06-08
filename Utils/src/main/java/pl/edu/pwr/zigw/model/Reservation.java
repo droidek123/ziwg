@@ -17,7 +17,7 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String status; // todo na schemacie jest enum potencjalnie do zmiany
+    private String status;
 
     @OneToOne
     @JoinColumn(name = "user_id")

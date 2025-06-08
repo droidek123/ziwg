@@ -3,6 +3,7 @@ package pl.edu.pwr.zigw.service;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import pl.edu.pwr.zigw.domain.ReservationRequest;
 import pl.edu.pwr.zigw.dto.ReservationDto;
 import pl.edu.pwr.zigw.model.Reservation;
 import pl.edu.pwr.zigw.model.Seat;
@@ -96,9 +97,33 @@ public class ReservationService {
         return ResponseEntity.ok("Reservation removed");
     }
 
+    public Long addReservation(ReservationRequest request) {
+        User user = userRepository.findById(request.getUserId())
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        Show show = showRepository.findById(request.getShowId())
+                .orElseThrow(() -> new RuntimeException("Show not found"));
+        Seat seat = seatRepository.findById(request.getSeatId())
+                .orElseThrow(() -> new RuntimeException("Seat not found"));
 
+        Reservation reservation = Reservation.builder()
+                .user(user)
+                .show(show)
+                .seat(seat)
+                .status("CONFIRMED")
+                .build();
+
+        return reservationRepository.save(reservation).getId();
+    }
+
+    public boolean cancelReservation(Long reservationId) {
+        return reservationRepository.findById(reservationId)
+                .map(reservation -> {
+                    reservation.setStatus("CANCELLED");
+                    reservationRepository.save(reservation);
+                    return true;
+                })
+                .orElse(false);
+    }
 
     // todo  pewnie pobieranie reservacji per user
-    // todo ogarnąć czy na froncie nie ma jakieś paginacji
-    // todo
 }

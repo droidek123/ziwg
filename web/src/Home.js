@@ -134,11 +134,13 @@ const Home = () => {
               <li><Link to="/register" onClick={closeSidebar}>Zarejestruj się</Link></li>
               <li><Link to="/login" onClick={closeSidebar}>Zaloguj się</Link></li>
               <li><Link to="/account" onClick={closeSidebar}>Moje konto</Link></li>
-              <li><Link to="/reservation" onClick={closeSidebar}>Rezerwacja</Link></li>
+              <li><Link to="/ticket" onClick={closeSidebar}>Bilet</Link></li>
+              {/* NOTE: Must not be accessed from side bar */}
               <li><Link to="/ordersnacks" onClick={closeSidebar}>Przekąski</Link></li>
               <li><Link to="/filmdetails" onClick={closeSidebar}>Szczegóły filmu</Link></li>
-              <li><Link to="/ticket" onClick={closeSidebar}>Bilet</Link></li>
-              <li><Link to="/confirmation" onClick={closeSidebar}>Potwierdzenie</Link></li>
+              {/* <li><Link to="/reservation" onClick={closeSidebar}>Rezerwacja</Link></li> */}
+              {/* <li><Link to="/confirmation" onClick={closeSidebar}>Potwierdzenie</Link></li> */}
+              {/* NOTE: Both of them are kinds of conirm reservation */}
             </ul>
           </div>
         </>

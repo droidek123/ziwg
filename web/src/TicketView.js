@@ -45,28 +45,29 @@ function TicketView() {
 
       <div className="ticket-content">
         <div className="ticket-poster">
-            {/* image supposed to go there. Also bakground is going to be removed, so it doesn't
-            matter now that it strathes*/}        
+            {/* image supposed to go there. */}        
         </div>
         
         <div className="ticket-texts">
           {/* Here can be a cinema logo, if we don't need it, it can be deleted. The example Logo 
           lays in a public folder */}        
-          <img src="TicketViewExampleLogo.png" alt="Cinema Logo" className="cinema-logo" />
+          {/* <img src="TicketViewExampleLogo.png" alt="Cinema Logo" className="cinema-logo" /> */}
 
           <h2 className="ticket-movie-title">{ticket.movieTitle}</h2>
 
           <div className="ticket-description">
-            <p><strong>Data:</strong> {ticket.screeningDate}</p>
-            <p><strong>Godzina:</strong> {ticket.screeningTime}</p>
-            <p><strong>Kino:</strong> {ticket.cinemaName}</p>
-            <p><strong>Adres:</strong> {ticket.address}</p>
-            <p><strong>Miejsce:</strong> {ticket.seat}</p>
-            <p><strong>Kod rezerwacji:</strong> {ticket.bookingCode}</p>
-            {/* remove if no QR needed */}        
+            <p><strong>Description: </strong>description of the film from its description, same as in FilmDescription</p>
+            <hr></hr>
+            <p><strong>Data: </strong> {ticket.screeningDate}</p>
+            <p><strong>Godzina: </strong> {ticket.screeningTime}</p>
+            <p><strong>Kino: </strong> {ticket.cinemaName}</p>
+            <p><strong>Adres: </strong> {ticket.address}</p>
+            <p><strong>Miejsce: </strong> {ticket.seat}</p>
+            <p><strong>Kod rezerwacji: </strong> {ticket.bookingCode}</p>
+            {/* remove if no QR needed        
             <div className="ticket-qr">
-              {/* QR goes here */}        
-            </div>
+              QR goes here        
+            </div> */}
           </div>
         </div>
       </div>

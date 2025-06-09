@@ -21,7 +21,7 @@ public class Reservation {
 
     @OneToOne
     @JoinColumn(name = "user_id")
-    private User user;
+    private User user; // todo trzeba to zmienic na many to one
 
     @ManyToOne
     @JoinColumn(name = "show_id")

@@ -1,25 +1,9 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import axios from 'axios';
+import { useContext } from "react";
+import { AuthContext } from "./AuthContext"
 import "./SnackView.css";
-
-const snacksList = [
-  { id: 1, name: "Popcorn mały", price: 15.99 },
-  { id: 2, name: "Popcorn średni", price: 16.99 },
-  { id: 3, name: "Popcorn duży", price: 18.99 },
-  { id: 4, name: "Cola mała", price: 11.99 },
-  { id: 5, name: "Cola duża", price: 13.99 },
-  { id: 6, name: "Fanta mała", price: 11.99 },
-  { id: 7, name: "Fanta duża", price: 13.99 },
-  { id: 8, name: "Nachosy małe", price: 15.99 },
-  { id: 9, name: "Nachosy duże", price: 18.99 },
-  { id: 10, name: "Haribo", price: 9.99 },
-  { id: 11, name: "Woda 500ml", price: 9.99 },
-  { id: 12, name: "Pepsi puszka", price: 9.99 },
-  { id: 13, name: "Mirinda puszka", price: 9.99 },
-  { id: 14, name: "Herbata 200ml", price: 9.99 },
-  { id: 15, name: "Popcorn czekoladowy - dopłata", price: 2.99 },
-  { id: 16, name: "Popcorn karmelowy - dopłata", price: 1.99 },
-];
 
 export default function SnackView() {
   const [quantities, setQuantities] = useState({});
@@ -27,6 +11,16 @@ export default function SnackView() {
   const [showSuccess, setShowSuccess] = useState(false);
   const menuRef = useRef(null);
   const navigate = useNavigate();
+  const { userId } = useContext(AuthContext);
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:8081/products')
+      .then((res) => res.json())
+      .then((data) => setProducts(data))
+      .catch((err) => console.error('Błąd ładowania produktów:', err));
+  }, []);
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -52,9 +46,32 @@ export default function SnackView() {
 
   const closeSidebar = () => setMenuOpen(false);
 
-  const handleOrder = () => {
-    setShowSuccess(true);
-  };
+  const handleOrder = async () => {
+    const selectedItems = Object.entries(quantities)
+      .filter(([_, quantity]) => quantity > 0)
+      .map(([productId, quantity]) => ({
+        productId: parseInt(productId),
+        quantity,
+      }));
+  
+    if (selectedItems.length === 0) {
+      alert("Nie wybrano żadnych produktów.");
+      return;
+    }
+  
+    try {
+      await axios.post("http://localhost:8081/snacks/order", {
+        userId: userId || parseInt(localStorage.getItem("userId")),
+        reservationId: 3, // hardcoded
+        items: selectedItems
+      });
+  
+      setShowSuccess(true);
+    } catch (err) {
+      console.error("Błąd zamówienia:", err);
+      alert("Błąd podczas zamawiania.");
+    }
+  };;
 
   const handleOk = () => {
     navigate("/reservation");
@@ -88,15 +105,15 @@ export default function SnackView() {
       <div className="navigation-bar">zamawianie przekąsek</div>
 
       <div className="snack-grid">
-        {snacksList.map((snack) => (
-          <div key={snack.id} className="snack-item">
+        {products.map((product) => (
+          <div key={product.id} className="snack-item">
             <div className="snack-image narrow" />
-            <div className="snack-name">{snack.name}</div>
-            <div className="snack-price">{snack.price.toFixed(2)}</div>
+            <div className="snack-name">{product.name}</div>
+            <div className="snack-price">{product.price.toFixed(2)}</div>
             <div className="snack-controls">
-              <button onClick={() => increase(snack.id)}>+</button>
-              <span>{quantities[snack.id] || 0}</span>
-              <button onClick={() => decrease(snack.id)}>-</button>
+              <button onClick={() => increase(product.id)}>+</button>
+              <span>{quantities[product.id] || 0}</span>
+              <button onClick={() => decrease(product.id)}>-</button>
             </div>
           </div>
         ))}

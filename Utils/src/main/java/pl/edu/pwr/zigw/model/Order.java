@@ -20,4 +20,8 @@ public class Order {
     @OneToOne
     @JoinColumn(name = "user_id")
     private User user;
+
+    @OneToOne
+    @JoinColumn(name = "reservation_id")
+    private Reservation reservation;
 }

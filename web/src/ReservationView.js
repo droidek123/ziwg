@@ -9,7 +9,7 @@ export default function ReservationView() {
   const menuRef = useRef(null);
   const navigate = useNavigate();
   const [reservation, setReservation] = useState(null);
-  const id  = 1; // TODO ID z URL
+  const id  = 3; // TODO ID z URL
 
   const handleClickOutside = (event) => {
     if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -23,9 +23,18 @@ export default function ReservationView() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, [menuOpen]);
 
-  const handleCancel = (confirm) => {
+  const handleCancel = async (confirm) => {
     setShowModal(false);
-    navigate("/reservation");
+    if (!confirm) return;
+  
+    try {
+      await axios.put(`http://localhost:8081/reservation/reservations/${id}/cancel`);
+      alert("Rezerwacja została odwołana.");
+      navigate("/reservation");
+    } catch (err) {
+      console.error("Błąd przy odwoływaniu rezerwacji:", err);
+      alert("Wystąpił błąd przy odwoływaniu rezerwacji.");
+    }
   };
 
   useEffect(() => {

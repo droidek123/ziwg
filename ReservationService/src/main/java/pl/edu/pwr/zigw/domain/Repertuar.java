@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @AllArgsConstructor
@@ -13,5 +14,5 @@ public class Repertuar {
     Long showId;
     Long movieId;
     String title;
-    Date date;
+    LocalDateTime dateTime;
 }

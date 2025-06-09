@@ -26,10 +26,9 @@ public class Movie {
 
     private Date releaseDate;
 
-    private Float rating;
-
     private String description;
 
-    private String genere;
+    private String genre;
 
+    private String posterFilename;
 }

@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import pl.edu.pwr.zigw.model.Reservation;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -18,7 +19,7 @@ public class ReservationDto {
     private Integer sector;
     private String title;
     private String cinemaRoom;
-    private Date date;
+    private LocalDateTime dateTime;
 
     public ReservationDto(Reservation res) {
         System.out.println(res);
@@ -29,6 +30,6 @@ public class ReservationDto {
         this.sector = res.getSeat() != null ? res.getSeat().getSector() : null;
         this.title = res.getShow() != null ? res.getShow().getMovie().getTitle() : null;
         this.cinemaRoom = res.getShow() != null ? res.getShow().getCinemaRoom().getName() : null;
-        this.date = res.getShow() != null ? res.getShow().getDate() : null;
+        this.dateTime = res.getShow() != null ? res.getShow().getDateTime() : null;
     }
 }

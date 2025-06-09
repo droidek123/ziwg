@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 @Entity
 @Table(name = "orders")
 @Builder
@@ -24,4 +26,6 @@ public class Order {
     @OneToOne
     @JoinColumn(name = "reservation_id")
     private Reservation reservation;
+
+    private LocalDateTime orderDate;
 }

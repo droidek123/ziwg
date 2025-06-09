@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "shows")
@@ -27,6 +27,5 @@ public class Show {
     @JoinColumn(name = "cinema_room_id")
     private CinemaRoom cinemaRoom;
 
-    private Date date;
-
+    private LocalDateTime dateTime;
 }

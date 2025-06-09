@@ -9,6 +9,7 @@ import pl.edu.pwr.zigw.domain.Repertuar;
 import pl.edu.pwr.zigw.model.Show;
 import pl.edu.pwr.zigw.service.ShowService;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class ShowController {
 
     @GetMapping("/shows")
     @Operation(summary = "Get list of shows", description = "Adds a new show and returns its ID.")
-    public List<Repertuar> getMovieList(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) Date showDate,
+    public List<Repertuar> getMovieList(@RequestParam(required = false) @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDateTime showDate,
                                         @RequestParam(required = false) String genere) {
         return showService.getShows(showDate, genere);
     }

@@ -19,9 +19,9 @@ public class Reservation {
 
     private String status;
 
-    @OneToOne
+    @ManyToOne
     @JoinColumn(name = "user_id")
-    private User user; // todo trzeba to zmienic na many to one
+    private User user;
 
     @ManyToOne
     @JoinColumn(name = "show_id")

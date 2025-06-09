@@ -35,4 +35,12 @@ public class MovieService {
 //    public List<String> getAllGenres() {
 //        return movieRepository.findDistinctGenres();
 //    }
+
+    public Movie findById(Long id) {
+        return movieRepository.findById(id).orElse(null);
+    }
+
+    public void save(Movie movie) {
+        movieRepository.save(movie);
+    }
 }

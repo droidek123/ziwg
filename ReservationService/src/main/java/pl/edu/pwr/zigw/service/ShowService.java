@@ -6,6 +6,7 @@ import pl.edu.pwr.zigw.domain.Repertuar;
 import pl.edu.pwr.zigw.model.Show;
 import pl.edu.pwr.zigw.repostiory.ShowRepository;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -19,8 +20,8 @@ public class ShowService {
         return showRepository.findById(id).orElse(null);
     }
 
-    public final List<Repertuar> getShows(Date showDate, String genere) {
-        List<Show> shows = showRepository.findAllByDate(showDate);
+    public final List<Repertuar> getShows(LocalDateTime showDateTime, String genere) {
+        List<Show> shows = showRepository.findAllByDateTime(showDateTime);
         return shows.stream().map(Translator::translateShowToRepertuar).toList();
     }
 

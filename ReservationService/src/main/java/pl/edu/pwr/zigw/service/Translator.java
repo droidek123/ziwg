@@ -13,7 +13,7 @@ public class Translator {
                 .showId(show.getId())
                 .movieId(show.getMovie().getId())
                 .title(show.getMovie().getTitle())
-                 .date(show.getDate())
+                .dateTime(show.getDateTime())
                 .build();
     }
 }

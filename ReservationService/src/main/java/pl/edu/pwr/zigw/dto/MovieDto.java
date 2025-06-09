@@ -17,7 +17,6 @@ public class MovieDto {
     public MovieDto(Movie movie) {
         this.id = movie.getId();
         this.title = movie.getTitle();
-        this.rating = movie.getRating();
         this.description = movie.getDescription();
     }
 }

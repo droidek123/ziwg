@@ -18,9 +18,4 @@ public class CinemaRoom {
     private Long id;
 
     private String name;
-
-    private Integer totalSeats;
-
-    private Integer sector;
-
 }

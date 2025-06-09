@@ -39,11 +39,12 @@ public class UserController {
     }
 
     @PutMapping("/user/update")
-    public User updateUser(Long userId, String email, String password, String name, String lastName) {
+    public User updateUser(Long userId, String email, String password, String name, String firstName, String lastName) {
         User user = new User();
         user.setEmail(email);
         user.setPassword(password);
         user.setName(name);
+        user.setFirstName(firstName);
         user.setLastName(lastName);
         return this.userService.updateUser(userId, user);
     }

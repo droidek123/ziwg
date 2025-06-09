@@ -42,10 +42,11 @@ const Home = () => {
   useEffect(() => {
     const fetchShows = async () => {
       try {
-        const selectedDate = dates[selectedDayIndex].keyDate;
-        console.log(selectedDate);
+        const selectedDate = new Date(dates[selectedDayIndex].keyDate);
+        const formattedDateTime = selectedDate.toISOString().slice(0, 19);
+        console.log("Wysyłana data (LocalDateTime):", formattedDateTime);
         const response = await axios.get('http://localhost:8081/show/shows', {
-          params: { showDate: selectedDate }
+          params: { showDate: formattedDateTime }
         });
         setShows(response.data);
       } catch (error) {

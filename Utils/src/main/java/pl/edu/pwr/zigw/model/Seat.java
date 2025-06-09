@@ -23,6 +23,5 @@ public class Seat {
 
     private Integer seatNumber;
 
-    private Integer sector;
-
+    private Integer seatRow;
 }

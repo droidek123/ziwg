@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.sql.Date;
+import java.time.LocalDateTime;
 import java.time.Year;
 
 @Entity
@@ -24,7 +24,7 @@ public class Movie {
 
     private Year year;
 
-    private Date releaseDate;
+    private LocalDateTime releaseDate;
 
     private String description;
 

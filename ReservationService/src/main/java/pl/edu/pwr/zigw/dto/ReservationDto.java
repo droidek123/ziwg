@@ -16,7 +16,7 @@ public class ReservationDto {
     private String status;
     private Long userId;
     private Integer seatNumber;
-    private Integer sector;
+    private Integer seatRow;
     private String title;
     private String cinemaRoom;
     private LocalDateTime dateTime;
@@ -27,7 +27,7 @@ public class ReservationDto {
         this.status = res.getStatus();
         this.userId = res.getUser() != null ? res.getUser().getId() : null;
         this.seatNumber = res.getSeat() != null ? res.getSeat().getSeatNumber() : null;
-        this.sector = res.getSeat() != null ? res.getSeat().getSector() : null;
+        this.seatRow = res.getSeat() != null ? res.getSeat().getSeatRow() : null;
         this.title = res.getShow() != null ? res.getShow().getMovie().getTitle() : null;
         this.cinemaRoom = res.getShow() != null ? res.getShow().getCinemaRoom().getName() : null;
         this.dateTime = res.getShow() != null ? res.getShow().getDateTime() : null;

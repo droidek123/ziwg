@@ -29,13 +29,13 @@ import java.util.UUID;
 public class MovieController {
 
     private final MovieService movieService;
-    private final Path uploadDir = Paths.get("uploads");
+    private final Path uploadDir = Paths.get("movie-posters");
 
     {
         try {
             Files.createDirectories(uploadDir);
         } catch (IOException e) {
-            throw new RuntimeException("Nie udało się utworzyć katalogu uploads", e);
+            throw new RuntimeException("Nie udało się utworzyć katalogu movie-posters", e);
         }
     }
 

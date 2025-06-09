@@ -11,6 +11,9 @@ import TicketView from './TicketView';
 import MyTickets from './MyTickets';
 import ReservationView from './ReservationView';
 import Confirmation from './Confirmation';
+import Logout from './Logout';
+import CinemaHall from './CinemaHall';
+
 
 function App() {
   return (
@@ -28,6 +31,8 @@ function App() {
         {/* it is decided that no use for them */}
         <Route path="/reservation" element={<ReservationView />} />
         <Route path="/confirmation" element={<Confirmation />} />
+        <Route path="/logout" element={<Logout />} />
+        <Route path="/cinema" element={<CinemaHall />} />
       </Routes>
     </Router>
   );

@@ -11,7 +11,7 @@ mvn clean install
 Web - ogl frontend wygenreowany przez react'a
 - Odpala się w ten sposób (powinno się uruchomić an porcie 3000): 
 ```
-cd /web
+cd /web or cd ./web
 npm start
 ```
 - jakby coś nie działało 

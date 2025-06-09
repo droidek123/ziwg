@@ -10,6 +10,8 @@ services:
       - POSTGRES_USER=pwr
       - POSTGRES_DB=ziwg_db
 
+
+
   eureka-server:
     build:
       context: .

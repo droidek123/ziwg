@@ -56,23 +56,20 @@ const Account = () => {
       <nav className="navigation-bar">Moje konto</nav>
 
       <div className="account-header">
-        <h2>Witaj, {userData ? userData.username : '...'}!</h2>
+        <h2>Witaj</h2>
       </div>
 
       <div className="account-settings-container">
         <h3 className="section-title">Ustawienia konta</h3>
 
         <div className="account-tile">
-          <div className="tile-item">📧 Email: {userData ? userData.email : '...'}</div>
-          <div className="tile-item">👤 Login: {userData ? userData.name : '...'}</div>
-          <div className="tile-item">🔒 Hasło: ********</div>
+          <div className="tile-item">Email:</div>
+          <div className="tile-item">Login:</div>
+          <div className="tile-item">Hasło:</div>
         </div>
 
-        <div className="reservation-button-wrapper">
-          <Link to="/reservation" className="reservation-button">
-            Zarządzaj rezerwacjami
-          </Link>
-        </div>
+
+
       </div>
     </div>
   );

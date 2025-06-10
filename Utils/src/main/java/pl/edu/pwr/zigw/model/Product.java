@@ -22,4 +22,6 @@ public class Product {
     private Long number;
 
     private Float price;
+
+    private String imageFilename;
 }

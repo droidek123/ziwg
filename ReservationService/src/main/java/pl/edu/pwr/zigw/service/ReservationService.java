@@ -15,6 +15,7 @@ import pl.edu.pwr.zigw.repostiory.ShowRepository;
 import pl.edu.pwr.zigw.repostiory.UserRepository;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -125,5 +126,8 @@ public class ReservationService {
                 .orElse(false);
     }
 
+    public List<Reservation> getReservationsByUserId(Long userId) {
+        return reservationRepository.findByUserId(userId);
+    }
     // todo  pewnie pobieranie reservacji per user
 }

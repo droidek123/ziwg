@@ -78,4 +78,10 @@ public class ReservationController {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @GetMapping("/user/{userId}")
+    @Operation(summary = "Get reservations by user ID", description = "Returns all reservations for a specific user.")
+    public List<Reservation> getReservationsByUserId(@PathVariable Long userId) {
+        return reservationService.getReservationsByUserId(userId);
+    }
 }

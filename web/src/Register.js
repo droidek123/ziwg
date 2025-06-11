@@ -58,7 +58,7 @@ function Register() {
         </button>
       </div>
 
-      <nav className="navigation-bar">rejestracja</nav>
+      <nav className="navigation-bar">Rejestracja</nav>
 
       {sidebarOpen && (
         <>
@@ -103,7 +103,7 @@ function Register() {
           required
         />
 
-        <label htmlFor="confirmPassword">Powtórz hasło</label>
+        <label htmlFor="confirmPassword">Powtórz Hasło</label>
         <input
           type="password"
           id="confirmPassword"
@@ -116,7 +116,7 @@ function Register() {
       </form>
 
       <div className="bottom-login-link">
-        masz już konto?{' '}
+        Masz już konto?{' '}
         <Link to="/login" className="bold-link">
           Zaloguj się
         </Link>

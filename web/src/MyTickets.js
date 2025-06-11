@@ -28,7 +28,7 @@ function MyTickets() {
       // navigate('/');
     } catch (error) {
       if (error.response) {
-        alert(`Niepoprawna nazwa użytkownika lub hasło`);
+        alert(`Niepoprawna Nazwa użytkownika lub Hasło`);
       } else {
         alert('Błąd połączenia z serwerem');
       }

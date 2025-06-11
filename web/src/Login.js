@@ -45,7 +45,7 @@ function Login() {
   
     } catch (error) {
       if (error.response) {
-        alert(`Niepoprawna nazwa użytkownika lub hasło`);
+        alert(`Niepoprawna Nazwa użytkownika lub Hasło`);
       } else {
         alert('Błąd połączenia z serwerem');
       }
@@ -63,7 +63,7 @@ function Login() {
         </button>
       </div>
 
-      <nav className="navigation-bar">logowanie</nav>
+      <nav className="navigation-bar">Logowanie</nav>
 
       {sidebarOpen && (
         <>
@@ -80,7 +80,7 @@ function Login() {
       )}
 
       <form className="login-form" onSubmit={handleSubmit}>
-        <label htmlFor="username">nazwa użytkownika</label>
+        <label htmlFor="username">Nazwa użytkownika</label>
         <input 
           type="text" 
           id="username" 
@@ -89,7 +89,7 @@ function Login() {
           required 
         />
 
-        <label htmlFor="password">hasło</label>
+        <label htmlFor="password">Hasło</label>
         <input 
           type="password" 
           id="password"

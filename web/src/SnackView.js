@@ -102,7 +102,7 @@ export default function SnackView() {
         </>
       )}
 
-      <div className="navigation-bar">zamawianie przekąsek</div>
+      <div className="navigation-bar">Zamawianie przekąsek</div>
 
       <div className="snack-grid">
         {products.map((product) => (

@@ -32,7 +32,7 @@ const Account = () => {
     <div className="account-page">
       <div className="navbar">
         <h1 className="app-title">
-          <Link to="/" className="app-link">nazwa aplikacji</Link>
+          <Link to="/" className="app-link">Cinema43</Link>
         </h1>
         <button className="hamburger" onClick={toggleSidebar}>
           ☰

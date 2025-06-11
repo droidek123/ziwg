@@ -34,7 +34,7 @@ export default function ReservationView() {
       <div className="navbar">
         <h1 className="app-title">
           <Link to="/" onClick={closeSidebar} style={{ textDecoration: 'none', color: 'black' }}>
-            nazwa aplikacji
+            Cinema43
           </Link>
         </h1>
         <button className="menu-button" onClick={() => setMenuOpen(!menuOpen)}>
@@ -47,10 +47,10 @@ export default function ReservationView() {
           <div className="menu-overlay" onClick={closeSidebar}></div>
           <div className="sidebar" ref={menuRef}>
             <ul>
-              <li><Link to="/login" onClick={closeSidebar}>zaloguj się</Link></li>
-              <li><Link to="/register" onClick={closeSidebar}>zarejestruj się</Link></li>
-              <li><Link to="/account" onClick={closeSidebar}>moje konto</Link></li>
-              <li><Link to="/" onClick={closeSidebar}>wyloguj</Link></li>
+              <li><Link to="/login" onClick={closeSidebar}>Zaloguj się</Link></li>
+              <li><Link to="/register" onClick={closeSidebar}>Zarejestruj się</Link></li>
+              <li><Link to="/account" onClick={closeSidebar}>Moje konto</Link></li>
+              <li><Link to="/" onClick={closeSidebar}>Wyloguj</Link></li>
             </ul>
           </div>
         </>

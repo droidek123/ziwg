@@ -66,7 +66,7 @@ const Home = () => {
     <div className="home-page">
       <div className="navbar">
         <h1 className="app-title">
-          <Link to="/" className="app-link">nazwa aplikacji</Link>
+          <Link to="/" className="app-link">Cinema43</Link>
         </h1>
 
 
@@ -79,16 +79,7 @@ const Home = () => {
      <nav className="navigation-bar">
        Repertuar
 
-       <div className="search-container">
-         <i className="fa fa-search"></i>
-         <input
-           type="text"
-           className="search-bar"
-           placeholder="Szukaj..."
-           value={searchQuery}
-           onChange={handleSearchChange}
-         />
-       </div>
+
      </nav>
 
 
@@ -106,9 +97,7 @@ const Home = () => {
 
         ))}
 
-              <div className="filter-button-container">
-                <button className="filter-button">Filtruj po gatunku</button>
-              </div>
+
       </div>
 
       <div className="movie-grid-container">

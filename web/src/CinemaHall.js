@@ -22,7 +22,7 @@ const CinemaHall = () => {
     <div className="cinema-page">
       <div className="navbar">
         <h1 className="app-title">
-          <Link to="/" className="app-link">nazwa aplikacji</Link>
+          <Link to="/" className="app-link">Cinema43</Link>
         </h1>
         <button className="hamburger" onClick={toggleSidebar}>☰</button>
       </div>
@@ -34,9 +34,9 @@ const CinemaHall = () => {
           <div className="overlay" onClick={closeSidebar}></div>
           <div className="sidebar">
             <ul>
-              <li><Link to="/login" onClick={closeSidebar}>zaloguj się</Link></li>
-              <li><Link to="/register" onClick={closeSidebar}>zarejestruj się</Link></li>
-              <li><Link to="/account" onClick={closeSidebar}>moje konto</Link></li>
+              <li><Link to="/login" onClick={closeSidebar}>Zaloguj się</Link></li>
+              <li><Link to="/register" onClick={closeSidebar}>Zarejestruj się</Link></li>
+              <li><Link to="/account" onClick={closeSidebar}>Moje konto</Link></li>
               <li><Link to="/" onClick={closeSidebar}>strona główna</Link></li>
             </ul>
           </div>
